@@ -3,15 +3,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner input=new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.print("Doğum Yılınızı Giriniz : ");
 
-        int birthYear=input.nextInt();
+        int birthYear = input.nextInt();
 
-        int remainder=birthYear%12;
+        int remainder = birthYear % 12;
 
-        switch (remainder){
+        switch (remainder) {
             case 0:
                 System.out.println("Çin Zodyağı Burcunuz : Maymun");
                 break;
