@@ -1,19 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-/*
-        int[][] a = {
-                {1, 2, 3},
-                {4, 5, 6}
-        };
 
-        int[][] aTranspoze = new int[3][2];
-
-
-
-        for(int i =0;i<a.length;i++){
-            for(int j=0;j<)
-            System.out.print(a[i][0]);
-        }*/
 
         int[][] matrix = new int[2][3];
         int[][] transpoze = new int[3][2];
