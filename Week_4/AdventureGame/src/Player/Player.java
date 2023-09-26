@@ -1,28 +1,73 @@
 package Player;
 
+import CharTypes.Archer;
 import CharTypes.BaseChar;
+import CharTypes.Knight;
+import CharTypes.Samurai;
 import Locations.BaseLocation;
+import Locations.SafeLocations.SafeHouse;
+
+import java.util.Scanner;
 
 public class Player {
 
     private String playerName;
-    private BaseLocation location;
     private BaseChar charType;
     private Inventory inventory;
     private int damage;
     private int healthy;
     private int money;
 
-    public Player(String playerName, BaseLocation location, BaseChar charType, Inventory inventory, int damage, int healthy, int money) {
-        this.playerName = playerName;
-        this.location = location;
-        this.charType = charType;
-        this.inventory = inventory;
-        this.damage = damage;
-        this.healthy = healthy;
-        this.money = money;
-    }
+    Scanner input=new Scanner(System.in);
 
+    public Player(String playerName, Inventory inventory) {
+        this.playerName = playerName;
+
+        this.inventory = inventory;
+
+    }
+    public void setCharStatus(BaseChar charType){
+        this.charType=charType;
+        this.damage=charType.getDamage();
+        this.healthy=charType.getHealth();
+        this.money=charType.getMoney();
+    }
+    public void chooseCharType(Player player){
+
+        Samurai samurai=new Samurai();
+        Archer archer=new Archer();
+        Knight knight=new Knight();
+
+
+        BaseChar[] charTypes={samurai,archer,knight};
+
+        for (BaseChar charType:charTypes) {
+            System.out.println(charType.getCharId()+"-"+charType.getCharName()+"\t"+
+                    "Hasar :"+charType.getDamage()+"\t"+
+                    "Sağlık :"+charType.getHealth()+"\t"+
+                    "Para :"+charType.getMoney());
+
+        }
+        System.out.println("Karakterinizi seçiniz :");
+        int selectedCharacter=input.nextInt();
+        if(selectedCharacter==1){
+            player.setCharStatus(samurai);
+
+        } else if (selectedCharacter==2) {
+            player.setCharStatus(archer);
+
+        } else if (selectedCharacter==3) {
+            player.setCharStatus(knight);
+
+        }else {
+            System.out.println("Hatalı giriş yaptınız. Samuray olarak devam ediyorsunuz.");
+            player.setCharStatus(samurai);
+        }
+
+
+        System.out.println("Oyuna başlayabilirsin "+player.getCharType().getCharName()+" "+playerName);
+
+    }
     public String getPlayerName() {
         return playerName;
     }
@@ -31,13 +76,6 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public BaseLocation getLocation() {
-        return location;
-    }
-
-    public void setLocation(BaseLocation location) {
-        this.location = location;
-    }
 
     public BaseChar getCharType() {
         return charType;
