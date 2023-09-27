@@ -68,6 +68,12 @@ public class Player {
         System.out.println("Oyuna başlayabilirsin "+player.getCharType().getCharName()+" "+playerName);
 
     }
+    public int getTotalDamage(){
+        return this.damage+ inventory.getWeaponDamage();
+    }
+    public int blockDamage(){
+        return inventory.getArmorDefence();
+    }
     public String getPlayerName() {
         return playerName;
     }

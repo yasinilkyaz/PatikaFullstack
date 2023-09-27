@@ -3,6 +3,9 @@ import CharTypes.BaseChar;
 import CharTypes.Knight;
 import CharTypes.Samurai;
 import Locations.BaseLocation;
+import Locations.BattleLocations.Cave;
+import Locations.BattleLocations.Forest;
+import Locations.BattleLocations.River;
 import Locations.SafeLocations.SafeHouse;
 import Locations.SafeLocations.Store;
 import Player.Player;
@@ -32,6 +35,9 @@ public class Game {
             System.out.println("-------------BÖLGE SEÇ------------");
             System.out.println("1 - Güvenli Ev");
             System.out.println("2 - Mağaza");
+            System.out.println("3 - Mağara");
+            System.out.println("4 - Orman");
+            System.out.println("5 - Nehir");
 
             int loc=input.nextInt();
             switch (loc){
@@ -41,6 +47,18 @@ public class Game {
                     break;
                 case 2:
                     location=new Store(player);
+                    location.onLocation(player);
+                    break;
+                case 3:
+                    location=new Cave(player);
+                    location.onLocation(player);
+                    break;
+                case 4:
+                    location=new Forest(player);
+                    location.onLocation(player);
+                    break;
+                case 5:
+                    location=new River(player);
                     location.onLocation(player);
                     break;
 

@@ -33,33 +33,35 @@ Scanner input = new Scanner(System.in);
         Armor midArmor=new Armor(2,"Orta Zırh",3,25);
         Armor heavyArmor=new Armor(3,"Ağır Zırh",5,40);
         Armor[] armors={lightArmor,midArmor,heavyArmor};
-
+        boolean storeExit=false;
         System.out.println("Paranız :"+player.getMoney());
+        while (!storeExit){
         System.out.println("Kategori seçiniz");
         System.out.println("1-Silah");
         System.out.println("2-Zırh");
+        System.out.println("3-Çıkış yap");
 
         int category= input.nextInt();
-        switch (category){
+        switch (category) {
             case 1:
 
-                for (Weapon weapon:weapons
-                     ) {
-                    System.out.println(weapon.getId()+"-"+weapon.getName()+"\t"+weapon.getDamage()+"\t"+weapon.getCost());
+                for (Weapon weapon : weapons
+                ) {
+                    System.out.println(weapon.getId() + "-" + weapon.getName() + "\t" + weapon.getDamage() + "\t" + weapon.getCost());
 
                 }
                 System.out.println("Silah seçiniz");
-                int weaponId=input.nextInt();
+                int weaponId = input.nextInt();
 
-                switch (weaponId){
+                switch (weaponId) {
                     case 1:
-                        buyWeapon(player,pistol);
+                        buyWeapon(player, pistol);
                         break;
                     case 2:
-                        buyWeapon(player,sword);
+                        buyWeapon(player, sword);
                         break;
                     case 3:
-                        buyWeapon(player,rifle);
+                        buyWeapon(player, rifle);
                         break;
                     default:
                         break;
@@ -67,29 +69,34 @@ Scanner input = new Scanner(System.in);
                 break;
 
             case 2:
-                for (Armor armor:armors
+                for (Armor armor : armors
                 ) {
-                    System.out.println(armor.getId()+"-"+armor.getName()+"\t"+armor.getBlockedDamage()+"\t"+armor.getCost());
+                    System.out.println(armor.getId() + "-" + armor.getName() + "\t" + armor.getBlockedDamage() + "\t" + armor.getCost());
 
                 }
                 System.out.println("Zırh seçiniz");
-                int armorId=input.nextInt();
-                switch (armorId){
+                int armorId = input.nextInt();
+                switch (armorId) {
                     case 1:
-                        buyArmor(player,lightArmor);
+                        buyArmor(player, lightArmor);
                         break;
                     case 2:
-                        buyArmor(player,midArmor);
+                        buyArmor(player, midArmor);
                         break;
                     case 3:
-                        buyArmor(player,heavyArmor);
+                        buyArmor(player, heavyArmor);
                         break;
                     default:
                         break;
 
                 }
+            case 3:
+                System.out.println("Mağazadan ayrıldınız.");
+                storeExit=true;
             default:
-                break;
+                System.out.println("Mağazadan ayrıldınız.");
+                storeExit=true;
+        }
         }
 
 
