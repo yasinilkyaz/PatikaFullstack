@@ -7,8 +7,9 @@ import java.util.Scanner;
 public abstract class BaseLocation {
 
     private Player player;
-    public static Scanner input=new Scanner(System.in);
+    public static Scanner input = new Scanner(System.in);
 
+    //Ata sınıf
     public BaseLocation(Player player) {
         this.player = player;
 

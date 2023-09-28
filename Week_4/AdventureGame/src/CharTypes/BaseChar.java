@@ -7,7 +7,7 @@ public abstract class BaseChar {
     int damage;
     int health;
     int money;
-
+    //Ata sınıf
     public BaseChar(String charName, int charId, int damage, int health, int money) {
         this.charName = charName;
         this.charId = charId;

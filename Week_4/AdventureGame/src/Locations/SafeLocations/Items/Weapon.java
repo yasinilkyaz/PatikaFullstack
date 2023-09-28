@@ -6,11 +6,11 @@ public class Weapon {
     private int damage;
     private int cost;
 
-    public Weapon(int id, String name, int damage,int cost) {
+    public Weapon(int id, String name, int damage, int cost) {
         this.id = id;
         this.name = name;
         this.damage = damage;
-        this.cost=cost;
+        this.cost = cost;
     }
 
     public int getId() {

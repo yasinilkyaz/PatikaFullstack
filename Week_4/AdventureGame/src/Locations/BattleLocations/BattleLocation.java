@@ -19,6 +19,7 @@ public abstract class BattleLocation extends BaseLocation {
         this.award = award;
     }
 
+
     @Override
     public boolean onLocation(Player player) {
         int monsterNumber = randomMonsterNumber();
@@ -27,59 +28,86 @@ public abstract class BattleLocation extends BaseLocation {
         String selectCase = input.nextLine();
         selectCase = selectCase.toUpperCase();
         if (selectCase.equals("G")) {
-            //savaş
-            combat(monsterNumber);
+
+            return combat(monsterNumber);
+
         } else return true;
 
 
-        return true;
     }
 
     public boolean combat(int monsterNumber) {
+
+        if (firstHitChance(2) > 0) {
+            System.out.println("ilk vuruşu " + getMonster().getMonsterName() + " yaptı.");
+            this.getPlayer().setHealthy(getPlayer().getHealthy() - getMonster().getDamage() + getPlayer().getInventory().getArmorDefence());
+        }
+
         for (int i = 1; i <= monsterNumber; i++) {
-            int monsterFirstHealth=getMonster().getHealth();
-            System.out.println("Sağlığınız :"+getPlayer().getHealthy()+"\t "+i+". "+getMonster().getMonsterName()+"Sağlığı :"+getMonster().getHealth());
+            int monsterFirstHealth = getMonster().getHealth();
+            System.out.println("Sağlığınız :" + getPlayer().getHealthy() + "\t " + i + ". " + getMonster().getMonsterName() + "Sağlığı :" + getMonster().getHealth());
 
 
-            while (this.getPlayer().getHealthy() > 0 && getMonster().getHealth()>0){
+            while (this.getPlayer().getHealthy() > 0 && getMonster().getHealth() > 0) {
                 System.out.println("<V>ur veya <K>aç");
-                String battleSelect=input.nextLine();
-                battleSelect=battleSelect.toUpperCase();
+                String battleSelect = input.nextLine();
+                battleSelect = battleSelect.toUpperCase();
 
-                if (battleSelect.equals("K")){
-                    break;
+                if (battleSelect.equals("K")) {
+                    return true;
 
                 }
-                if (battleSelect.equals("V")){
+                if (battleSelect.equals("V")) {
 
-                    int monsterHealth=this.getMonster().getHealth();
-                    int playerHealth=this.getPlayer().getHealthy();
-                    int monsterDamage=getMonster().getDamage();
-                    int playerDamage=getPlayer().getTotalDamage();
-                    this.getMonster().setHealth(monsterHealth-playerDamage);
-                    this.getPlayer().setHealthy(playerHealth-monsterDamage+getPlayer().getInventory().getArmorDefence());
-                    if(getMonster().getHealth()<0){getMonster().setHealth(0);}
-                    System.out.println("Sağlığınız :"+getPlayer().getHealthy()+"\t "+i+". "+
-                            getMonster().getMonsterName()+"Sağlığı :"+getMonster().getHealth());
+                    int monsterHealth = this.getMonster().getHealth();
+                    int playerHealth = this.getPlayer().getHealthy();
+                    int monsterDamage = getMonster().getDamage();
+                    int playerDamage = getPlayer().getTotalDamage();
+                    this.getMonster().setHealth(monsterHealth - playerDamage);
+                    this.getPlayer().setHealthy(playerHealth - monsterDamage + getPlayer().getInventory().getArmorDefence());
+                    if (getMonster().getHealth() < 0) {
+                        getMonster().setHealth(0);
+                    }
+                    System.out.println("Sağlığınız :" + getPlayer().getHealthy() + "\t " + i + ". " +
+                            getMonster().getMonsterName() + "Sağlığı :" + getMonster().getHealth());
 
-                    if(this.getMonster().getHealth()<=0){
-                        System.out.println("Canavar öldü");
+                    if (this.getMonster().getHealth() <= 0) {
+                        System.out.println(getMonster().getMonsterName() + " öldü");
 
-                        getPlayer().setMoney(getPlayer().getMoney()+getMonster().getMoney());
-                        System.out.println("Canavardan para alındı. Paranız :"+getPlayer().getMoney());
-                        //ödül ver para ver
+                        if (getMonster().getMoney() > 0) {
+                            getPlayer().setMoney(getPlayer().getMoney() + getMonster().getMoney());
+                            System.out.println(getMonster().getMonsterName() + " para alındı. Paranız :" + getPlayer().getMoney());
+                        }
+
+
+                    }
+                    if (this.getPlayer().getHealthy() <= 0) {
+                        System.out.println(getPlayer().getPlayerName() + " Öldü.");
+                        return false;
                     }
                 }
             }
             getMonster().setHealth(monsterFirstHealth);
+            if (i == monsterNumber) {
+                System.out.println("Burayı tamamladınız. Ödülünüz : " + this.award);
+                sectorClear(i);
+                return true;
+            }
         }
 
-        return false;
+        return true;
     }
+
+    public abstract void sectorClear(int loop);
 
     public int randomMonsterNumber() {
         Random random = new Random();
         return random.nextInt(this.getMaxMonster()) + 1;
+    }
+
+    public int firstHitChance(int ratio) {
+        Random random = new Random();
+        return random.nextInt(ratio);
     }
 
     public int getMaxMonster() {
@@ -102,8 +130,6 @@ public abstract class BattleLocation extends BaseLocation {
         return monster;
     }
 
-    public void setMonster(BaseMonster monster) {
-        this.monster = monster;
-    }
+
 
 }

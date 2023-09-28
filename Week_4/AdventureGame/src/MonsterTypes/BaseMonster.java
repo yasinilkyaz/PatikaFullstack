@@ -8,6 +8,7 @@ public abstract class BaseMonster {
     int health;
     int money;
 
+    //Ata sınıf
     public BaseMonster(String monsterName, int monsterId, int damage, int health, int money) {
         this.monsterName = monsterName;
         this.monsterId = monsterId;

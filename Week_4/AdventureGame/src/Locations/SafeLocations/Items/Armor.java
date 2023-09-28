@@ -6,11 +6,11 @@ public class Armor {
     private int blockedDamage;
     private int cost;
 
-    public Armor(int id, String name, int blockedDamage,int cost) {
+    public Armor(int id, String name, int blockedDamage, int cost) {
         this.id = id;
         this.name = name;
         this.blockedDamage = blockedDamage;
-        this.cost=cost;
+        this.cost = cost;
     }
 
     public int getId() {
