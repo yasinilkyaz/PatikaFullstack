@@ -2,6 +2,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("Kelimeleri giriniz :");
+
         Scanner input = new Scanner(System.in);
 
         String text = input.nextLine();
@@ -22,6 +25,7 @@ public class Main {
 
         }
         int repeatValue = 0;
+
         for (Map.Entry<String, Integer> entry : words.entrySet()) {
             if (entry.getValue() > repeatValue) {
                 repeatValue = entry.getValue();
