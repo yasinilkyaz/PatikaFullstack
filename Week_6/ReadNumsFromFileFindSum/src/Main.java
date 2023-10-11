@@ -17,7 +17,9 @@ public class Main {
             System.out.println("   "+line);
             sum+=Integer.parseInt(line);
         }
-
+        bufferedReader.close();
+        reader.close();
+        
         System.out.println("+____");
         System.out.println("   "+sum);
     }
