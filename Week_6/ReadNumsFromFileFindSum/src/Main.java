@@ -19,7 +19,7 @@ public class Main {
         }
         bufferedReader.close();
         reader.close();
-        
+
         System.out.println("+____");
         System.out.println("   "+sum);
     }
