@@ -167,6 +167,10 @@ public class User {
 
     public static boolean delete(int id) {
         String query = "DELETE FROM user WHERE id = ?";
+        ArrayList<Course>courseList =Course.getListByUser(id);
+        for (Course c: courseList){
+            Course.delete(c.getId());
+        }
         try {
             PreparedStatement pr = DBConnector.getInstance().prepareStatement(query);
             pr.setInt(1, id);
@@ -231,5 +235,27 @@ public class User {
             query=query.replace("{{type}}",type);
         }
         return query;
+    }
+    public static ArrayList<User> getListOnlyEducator() {
+        ArrayList<User> userList = new ArrayList<>();
+        String query = "SELECT * FROM user WHERE type= 'educator'";
+        try {
+            Statement st = DBConnector.getInstance().createStatement();
+            ResultSet rs = st.executeQuery(query);
+            User obj;
+            while (rs.next()) {
+                obj = new User();
+                obj.setId(rs.getInt("id"));
+                obj.setName(rs.getNString("name"));
+                obj.setUname(rs.getNString("uname"));
+                obj.setPass(rs.getNString("pass"));
+                obj.setType(rs.getString("type"));
+                userList.add(obj);
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return userList;
     }
 }
