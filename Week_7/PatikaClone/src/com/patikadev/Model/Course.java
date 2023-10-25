@@ -28,6 +28,32 @@ public class Course {
         this.educator=User.getFetch(user_id);
     }
 
+    public Course() {
+    }
+
+    public static Course getFetch(int courseId) {
+        Course course=null;
+        String query="SELECT * FROM course WHERE id=?";
+
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,courseId);
+            ResultSet rs=pr.executeQuery();
+            while (rs.next()){
+                course=new Course();
+                course.setId(rs.getInt("id"));
+                course.setUser_id(rs.getInt("user_id"));
+                course.setPatika_id(rs.getInt("patika_id"));
+                course.setName(rs.getString("name"));
+                course.setLang(rs.getString("lang"));
+                break;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return course;
+    }
+
     public int getId() {
         return id;
     }
