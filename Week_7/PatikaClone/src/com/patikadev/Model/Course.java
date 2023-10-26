@@ -54,6 +54,29 @@ public class Course {
         return course;
     }
 
+    public static Course getFetchWithName(String contCourseName) {
+        Course course=null;
+        String query="SELECT * FROM course WHERE name=?";
+
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setString(1,contCourseName);
+            ResultSet rs=pr.executeQuery();
+            while (rs.next()){
+                course=new Course();
+                course.setId(rs.getInt("id"));
+                course.setUser_id(rs.getInt("user_id"));
+                course.setPatika_id(rs.getInt("patika_id"));
+                course.setName(rs.getString("name"));
+                course.setLang(rs.getString("lang"));
+                break;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return course;
+    }
+
     public int getId() {
         return id;
     }

@@ -53,6 +53,9 @@ public class OperatorGUI extends JFrame {
     private JTextField fld_cont_title;
     private JComboBox cmb_cont_educator;
     private JComboBox cmb_cont_course;
+    private JButton btn_cont_add;
+    private JTextField fld_cont_id;
+    private JButton btn_cont_delete;
     private DefaultTableModel mdl_user_list;
     private Object[] row_user_list;
     private DefaultTableModel mdl_patika_list;
@@ -288,6 +291,59 @@ public class OperatorGUI extends JFrame {
         row_cont_list=new Object[col_cont_list.length];
         tbl_cont_list.setModel(mdl_content_list);
         loadContentModel();
+        btn_cont_add.addActionListener(e -> {
+            Item educatorItem=(Item) cmb_cont_educator.getSelectedItem();
+            Item courseItem=(Item) cmb_cont_course.getSelectedItem();
+            if (Helper.isFieldEmpty(fld_cont_title)){
+                Helper.showMsg("fill");
+            }else {
+                if(Content.add(educatorItem.getKey(),courseItem.getKey(),fld_cont_title)){
+                    Helper.showMsg("done");
+                    loadContentModel();
+                    fld_cont_title.setText(null);
+                }
+            }
+        });
+        //seçilen satırın id
+        tbl_cont_list.getSelectionModel().addListSelectionListener(e -> {
+            try {
+                String select_cont_id = tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(), 0).toString();
+                fld_cont_id.setText(select_cont_id);
+            }catch (Exception exp){
+                System.out.println(exp.getMessage());
+            }
+        });
+
+        tbl_cont_list.getModel().addTableModelListener(e -> {
+        if (e.getType()==TableModelEvent.UPDATE){
+            int cont_id=Integer.parseInt(tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),0).toString());
+            String cont_edu_name=tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),1).toString();
+            String cont_course_name=tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),2).toString();
+            String cont_title=tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),3).toString();
+            String cont_clarify=tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),4).toString();
+            String cont_ytLink=tbl_cont_list.getValueAt(tbl_cont_list.getSelectedRow(),5).toString();
+            if (Content.update(cont_id,cont_edu_name,cont_course_name,cont_title,cont_clarify,cont_ytLink)){
+                Helper.showMsg("done");
+                loadContentModel();
+            }
+        }
+        });
+        btn_cont_delete.addActionListener(e -> {
+            if (Helper.isFieldEmpty(fld_cont_id)){
+                Helper.showMsg("fill");
+            }else {
+                if (Helper.confirm("sure")){
+                    int cont_id=Integer.parseInt(fld_cont_id.getText());
+                    if (Content.delete(cont_id)){
+                        Helper.showMsg("done");
+                        loadContentModel();
+                        fld_cont_id.setText(null);
+                    }else {
+                        Helper.showMsg("error");
+                    }
+                }
+            }
+        });
     }
 
     private void loadCourseModel() {

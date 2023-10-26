@@ -1,7 +1,10 @@
 package com.patikadev.Model;
 
 import com.patikadev.Helper.DBConnector;
+import com.patikadev.Helper.Helper;
 
+import javax.swing.*;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -53,6 +56,58 @@ public class Content {
         }
     return contentList;
     }
+
+    public static boolean add(int educator_id, int course_id, JTextField fldContTitle) {
+        String query="INSERT INTO content (educator_id , course_id , title , clarify , yt_link) VALUES (?,?,?,'Eğitmenin doldurması bekleniyor','Eğitmenin doldurması bekleniyor')";
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,educator_id);
+            pr.setInt(2,course_id);
+            pr.setString(3,fldContTitle.getText());
+            return pr.executeUpdate()!=-1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean update(int contId, String contEduName, String contCourseName, String contTitle, String contClarify, String contYtLink) {
+        User educator=new User();
+        String query="UPDATE content SET educator_id=?, course_id=? ,title=?, clarify=?, yt_link=? WHERE id=?";
+        educator=User.getFetchEdu(contEduName);
+        Course course=Course.getFetchWithName(contCourseName);
+        System.out.println(educator.getName());
+        System.out.println(course.getName());
+        if (educator.getType().equals("educator")){
+            Helper.showMsg("Öğretmen bulunamadı !");
+            return false;
+        }
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,educator.getId());
+            pr.setInt(2,course.getId());
+            pr.setString(3,contTitle);
+            pr.setString(4,contClarify);
+            pr.setString(5,contYtLink);
+            pr.setInt(6,contId);
+            return pr.executeUpdate()!=-1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static boolean delete(int id) {
+        String query="DELETE FROM content WHERE id=?";
+
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,id);
+            return pr.executeUpdate() !=-1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int getId() {
         return id;
     }
