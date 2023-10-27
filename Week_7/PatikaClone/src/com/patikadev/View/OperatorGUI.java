@@ -4,6 +4,8 @@ import com.patikadev.Helper.*;
 import com.patikadev.Model.*;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -56,6 +58,11 @@ public class OperatorGUI extends JFrame {
     private JButton btn_cont_add;
     private JTextField fld_cont_id;
     private JButton btn_cont_delete;
+    private JPanel pnl_quiz_list;
+    private JScrollPane scrl_quiz_list;
+
+
+    private JButton btn_quiz_delete;
     private DefaultTableModel mdl_user_list;
     private Object[] row_user_list;
     private DefaultTableModel mdl_patika_list;
@@ -67,6 +74,13 @@ public class OperatorGUI extends JFrame {
 
     private DefaultTableModel mdl_content_list;
     private Object[] row_cont_list;
+    private JTable tbl_quiz_list;
+    private DefaultTableModel mdl_quiz_list;
+    private Object[] row_quiz_list;
+    private JTextField fld_quiz_id;
+    private JTextField fld_quiz_contID;
+    private JTextField fld_quiz_question;
+    private JButton btn_quiz_add;
 
     public OperatorGUI(Operator operator) {
         try {
@@ -344,6 +358,49 @@ public class OperatorGUI extends JFrame {
                 }
             }
         });
+
+        // QUİZ---------------------------------------------------------------------
+
+        mdl_quiz_list=new DefaultTableModel();
+        Object[] col_quiz_list={"ID","İçerik id","Soru"};
+        mdl_quiz_list.setColumnIdentifiers(col_quiz_list);
+
+        row_quiz_list=new Object[col_quiz_list.length];
+        tbl_quiz_list.setModel(mdl_quiz_list);
+        loadQuizModel();
+
+        btn_quiz_add.addActionListener(e -> {
+            if(Helper.isFieldEmpty(fld_quiz_contID)&& Helper.isFieldEmpty(fld_quiz_question)){
+                Helper.showMsg("fill");
+            }else {
+                if (Quiz.add(Integer.parseInt(fld_quiz_contID.getText()),fld_quiz_question.getText())){
+                    Helper.showMsg("done");
+                    loadQuizModel();
+                    fld_quiz_contID.setText(null);
+                    fld_quiz_question.setText(null);
+                }
+            }
+        });
+        tbl_quiz_list.getSelectionModel().addListSelectionListener(e -> {
+            try{
+            String selectId=tbl_quiz_list.getValueAt(tbl_quiz_list.getSelectedRow(),0).toString();
+            fld_quiz_id.setText(selectId);} catch (Exception err){
+                System.out.println(err.getMessage());
+            }
+
+        });
+        btn_quiz_delete.addActionListener(e -> {
+            if(Helper.isFieldEmpty(fld_quiz_id)){
+                Helper.showMsg("fill");
+            }else {
+                if (Quiz.delete(Integer.parseInt(fld_quiz_id.getText()))){
+                    Helper.showMsg("done");
+                    loadQuizModel();
+                    fld_quiz_id.setText(null);
+                }
+            }
+        });
+        //update
     }
 
     private void loadCourseModel() {
@@ -370,6 +427,19 @@ public class OperatorGUI extends JFrame {
             row_patika_list[i++] = obj.getId();
             row_patika_list[i++] = obj.getName();
             mdl_patika_list.addRow(row_patika_list);
+        }
+    }
+
+    private void loadQuizModel(){
+        DefaultTableModel clearModel=(DefaultTableModel) tbl_quiz_list.getModel();
+        clearModel.setRowCount(0);
+        int i;
+        for (Quiz obj:Quiz.quizList()){
+            i=0;
+            row_quiz_list[i++]=obj.getId();
+            row_quiz_list[i++]=obj.getCont_id();
+            row_quiz_list[i++]=obj.getQuestion();
+            mdl_quiz_list.addRow(row_quiz_list);
         }
     }
 
