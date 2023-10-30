@@ -95,7 +95,49 @@ public class Content {
         }
 
     }
+    public static boolean updateEdu(int contId, String contEduName, String contCourseName, String contTitle, String contClarify, String contYtLink) {
+        User educator=new User();
+        String query="UPDATE content SET educator_id=?, course_id=? ,title=?, clarify=?, yt_link=? WHERE id=?";
+        educator=User.getFetchEdu(contEduName);
+        Course course=Course.getFetchWithName(contCourseName);
+        System.out.println(educator.getName());
+        System.out.println(course.getName());
 
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,educator.getId());
+            pr.setInt(2,course.getId());
+            pr.setString(3,contTitle);
+            pr.setString(4,contClarify);
+            pr.setString(5,contYtLink);
+            pr.setInt(6,contId);
+            return pr.executeUpdate()!=-1;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public static Content getFetch(int cont_id){
+        Content obj=null;
+        String query= "SELECT * FROM content where id=?";
+        try {
+            PreparedStatement pr=DBConnector.getInstance().prepareStatement(query);
+            pr.setInt(1,cont_id);
+            ResultSet rs=pr.executeQuery();
+            while (rs.next()){
+                obj.setId(rs.getInt("id"));
+                obj.setTitle(rs.getString("title"));
+                obj.setClarify(rs.getString("clarify"));
+                obj.setYoutubeLink(rs.getString("yt_link"));
+                obj.setEducator_id(rs.getInt("educator_id"));
+                obj.setCourse_id(rs.getInt("course_id"));
+                break;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return obj;
+    }
     public static boolean delete(int id) {
         String query="DELETE FROM content WHERE id=?";
 

@@ -2,12 +2,12 @@ package com.patikadev.View;
 
 import com.patikadev.Helper.Config;
 import com.patikadev.Helper.Helper;
+import com.patikadev.Model.Educator;
 import com.patikadev.Model.Operator;
+import com.patikadev.Model.Student;
 import com.patikadev.Model.User;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginGUI extends JFrame{
     private JPanel wrapper;
@@ -16,10 +16,14 @@ public class LoginGUI extends JFrame{
     private JTextField fld_user_uname;
     private JPasswordField fld_user_pass;
     private JButton btn_login;
+    private JTextField fld_user_name_register;
+    private JButton btn_user_register;
+    private JTextField fld_user_uname_register;
+    private JTextField fld_user_pass_register;
 
     public LoginGUI(){
         add(wrapper);
-        setSize(400,400);
+        setSize(400,800);
         setLocation(Helper.screenCenter("x",getSize()),Helper.screenCenter("y",getSize()));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setTitle(Config.PROJECT_TITLE);
@@ -37,19 +41,32 @@ public class LoginGUI extends JFrame{
 
                     switch (u.getType()){
                         case "operator":
-                            System.out.println(u.getType());
                             OperatorGUI opGUI=new OperatorGUI((Operator) u);
                             break;
                         case "educator":
-                            EducatorGUI educatorGUI=new EducatorGUI();
+                            EducatorGUI educatorGUI=new EducatorGUI((Educator) u);
                             break;
                         case "student":
-                            StudentGUI studentGUI=new StudentGUI();
+                            StudentGUI studentGUI=new StudentGUI((Student) u);
                             break;
                     }
                     dispose();
                 }
             }
+        });
+        btn_user_register.addActionListener(e -> {
+
+                String name = fld_user_name_register.getText();
+                String uname = fld_user_uname_register.getText();
+                String pass = fld_user_pass_register.getText();
+
+                if (User.register(name, uname, pass)) {
+                    Helper.showMsg("done");
+                    fld_user_name_register.setText(null);
+                    fld_user_uname_register.setText(null);
+                    fld_user_pass_register.setText(null);
+                }
+
         });
     }
 

@@ -23,8 +23,10 @@ public class Quiz {
         this.cont_id = cont_id;
         this.question = question;
         this.content=Content.getList().get(cont_id);
+
     }
-    //+getlist  +add update +delete
+    //+getlist  +add +update +delete
+
 
     public static boolean update(int id, int contID,String question){
         String query="UPDATE quiz SET cont_id = ? , question = ? WHERE id = ?";

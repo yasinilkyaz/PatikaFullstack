@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
@@ -401,6 +402,17 @@ public class OperatorGUI extends JFrame {
             }
         });
         //update
+        tbl_quiz_list.getModel().addTableModelListener(e -> {
+            if (e.getType()==TableModelEvent.UPDATE){
+                int quiz_id=Integer.parseInt(tbl_quiz_list.getValueAt(tbl_quiz_list.getSelectedRow(),0).toString());
+                int quiz_cont_id=Integer.parseInt(tbl_quiz_list.getValueAt(tbl_quiz_list.getSelectedRow(),1).toString());
+                String quiz_question=tbl_quiz_list.getValueAt(tbl_quiz_list.getSelectedRow(),2).toString();
+                    if (Quiz.update(quiz_id,quiz_cont_id,quiz_question)){
+                        Helper.showMsg("done");
+                        loadQuizModel();
+                    }
+            }
+        });
     }
 
     private void loadCourseModel() {
