@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5dd7fc1-f77f-4f37-97fa-f9b91c8013ee" name="Changes" comment="persistence updated">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Code.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Color.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Supplier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-    </list>
+    <list default="true" id="b5dd7fc1-f77f-4f37-97fa-f9b91c8013ee" name="Changes" comment="persistence updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +99,7 @@
       <workItem from="1700165712570" duration="645000" />
       <workItem from="1700170716908" duration="629000" />
       <workItem from="1700218980734" duration="3634000" />
+      <workItem from="1700307705078" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="persistence updated">
       <option name="closed" value="true" />
