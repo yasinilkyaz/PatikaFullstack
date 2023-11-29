@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5dd7fc1-f77f-4f37-97fa-f9b91c8013ee" name="Changes" comment="persistence updated" />
+    <list default="true" id="b5dd7fc1-f77f-4f37-97fa-f9b91c8013ee" name="Changes" comment="persistence updated">
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/business/abstracts/ICustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/business/concrates/CustomerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/core/HibernateSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/dao/abstracts/ICustomerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/dao/concrates/CustomerDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/entities/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/java/dev/patika/view/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_12/LayeredArchitectureSample/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +110,8 @@
       <workItem from="1700170716908" duration="629000" />
       <workItem from="1700218980734" duration="3634000" />
       <workItem from="1700307705078" duration="13000" />
+      <workItem from="1700491509121" duration="617000" />
+      <workItem from="1700517696549" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="persistence updated">
       <option name="closed" value="true" />
