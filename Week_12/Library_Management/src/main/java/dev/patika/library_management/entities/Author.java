@@ -1,5 +1,6 @@
 package dev.patika.library_management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class Author {
     private String country;
 
     @OneToMany(mappedBy = "author",cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Book> bookList;
 
     public Author() {

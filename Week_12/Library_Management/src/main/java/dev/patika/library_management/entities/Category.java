@@ -1,5 +1,6 @@
 package dev.patika.library_management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,7 +20,8 @@ public class Category {
 
     @Column(name = "category_description",nullable = false)
     private String description;
-    @ManyToMany(mappedBy = "categoryList",cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Book> bookList;
 
     public Category() {

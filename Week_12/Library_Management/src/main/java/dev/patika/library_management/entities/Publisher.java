@@ -1,5 +1,6 @@
 package dev.patika.library_management.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,7 +20,8 @@ public class Publisher {
     @Column(name = "publisher_address",nullable = false)
     private String address;
 
-    @OneToMany(mappedBy = "publisher")
+    @OneToMany(mappedBy = "publisher",cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<Book> bookList;
 
     public Publisher() {

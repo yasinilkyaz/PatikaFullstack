@@ -18,10 +18,10 @@ public class BookBorrowing {
     @Column(name = "borrowing_date",nullable = false)
     private LocalDate borrowingDate;
 
-    @Column(name = "returnDate",nullable = true)
+    @Column(name = "return_date",nullable = true)
     private LocalDate returnDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "borrowing_book_id", referencedColumnName = "book_id")
     private Book borrowingBook;
 
