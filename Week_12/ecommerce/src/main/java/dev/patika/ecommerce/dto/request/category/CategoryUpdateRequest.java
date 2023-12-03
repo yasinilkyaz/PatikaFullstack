@@ -1,14 +1,18 @@
-package dev.patika.ecommerce.dto.response.category;
+package dev.patika.ecommerce.dto.request.category;
 
-public class CategoryResponse {
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
+public class CategoryUpdateRequest {
+    @Positive
     private int id;
+    @NotNull
     private String name;
 
-    public CategoryResponse() {
+    public CategoryUpdateRequest() {
     }
 
-    public CategoryResponse(int id, String name) {
+    public CategoryUpdateRequest(int id, String name) {
         this.id = id;
         this.name = name;
     }

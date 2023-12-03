@@ -24,7 +24,7 @@ public class CategoryManager implements ICategoryService {
     }
 
     @Override
-    public Category get(Long id) {
+    public Category get(int id) {
         return this.categoryRepo.findById(id).orElseThrow(() -> new NotFoundException(Msg.NOT_FOUND_EXCEPTION));
     }
 
@@ -32,5 +32,18 @@ public class CategoryManager implements ICategoryService {
     public Page<Category> cursor(int page, int pageSize) {
         Pageable pageable= PageRequest.of(page,pageSize);
         return this.categoryRepo.findAll(pageable);
+    }
+
+    @Override
+    public Category update(Category category) {
+        this.get(category.getId());
+        return this.categoryRepo.save(category);
+    }
+
+    @Override
+    public boolean delete(int id) {
+        Category category=get(id);
+        this.categoryRepo.delete(category);
+        return true;
     }
 }

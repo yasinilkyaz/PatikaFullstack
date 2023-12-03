@@ -5,7 +5,10 @@ import org.springframework.data.domain.Page;
 
 public interface ICategoryService {
     Category save(Category category);
-    Category get(Long id);
+    Category get(int id);
     Page<Category> cursor(int page,int pageSize);
 
+    Category update(Category category);
+
+    boolean delete(int id);
 }
