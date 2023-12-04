@@ -1,7 +1,8 @@
 package dev.patika.library_management.core.mapper;
 
-import dev.patika.LibraryApp.dto.request.BookForBorrowingRequest;
-import dev.patika.LibraryApp.entity.Book;
+
+import dev.patika.library_management.dto.request.BookForBorrowingRequest;
+import dev.patika.library_management.entities.Book;
 import org.mapstruct.Mapper;
 
 @Mapper
