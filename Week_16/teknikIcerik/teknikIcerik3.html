@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Emmet Zen coding -->
+
+    <!-- 1 - > ifadesini kullanarak kardeş element oluşturuyoruz.
+Örneğin şekildeki, gibi ul tagı içerisinde li tagı oluşturmak istiyorsunuz.
+ Bunun için yapmanız gereken tek şey ul>li yazarak Tab’a basmak. -->
+ <ul>
+    <li></li>
+ </ul>
+
+<!-- Örneğin ul tagı içinde li tagı oluşturduktan sonra ul tagı dışında bir p tagı
+eklemek istiyorum.Bunun için ul>li^p yazarak taba basabilirim. -->
+<ul>
+    <li></li>
+</ul>
+<p></p>
+
+
+<!--Peki ya bu ul tagı içerisine birden fazla li oluşturmak istiyorsam, ne yapmalıyım?
+Bunun için * ifadesini kullanırız. ul>li*3 yaparak ul tagı 
+içerisinde üç adet li tagı oluşturabilirsiniz -->
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<!-- Tag eklerken onlara class özelliği vermek için de . ifadesini kullanırız.
+Örneğin ul.class1>li.class2*3 denerek bir yerine üç adet class2 sınıfından li tagı oluşturulabilir -->
+<ul class="class1">
+    <li class="class2"></li>
+    <li class="class2"></li>
+    <li class="class2"></li>
+</ul>
+<!-- Peki otomatik artış sağlayan değerleri tek tek yazmak 
+    amacımız zaman tasarrufu iken ne kadar mantıklı?
+Emmet bunun için de bir kısa yola sahip :$ ifadesi.
+ şeklinde yazdığımız kod bloğunu çok daha basit bir biçimde ul>li#idNo$*3 diyerek yazabiliriz. -->
+ <ul>
+    <li id="idNo1"></li>
+    <li id="idNo2"></li>
+    <li id="idNo3"></li>
+ </ul>
+
+ <!-- Örneğin 5 kelimeli bir lorem yazısı istiyorsunuz. 
+     Bunun için p>lorem5 yazmanız yeterli. -->
+     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+
+
+
+<!-- Görsellerle Çalışmak -->
+
+     <img src="https://picsum.photos/800/400" alt="açıklama">
+     <img src="images/977-800x400.jpg" alt="">
+</body>
+</html>
