@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Oluşturmak</title>
+</head>
+<body>
+    <form >
+        Ad: <input type="text" name="name"><br>
+        Soyad: <input type="text"name="lastName"><br>
+        Eposta: <input type="email" name="email"required><br>
+        Şifre: <input type="password" required name="password"> <br>
+        Doğum tarihi: <input type="date"><br>
+        Cinsiyet: <br>
+        <input type="radio" name="gender">Erkek <br>
+        <input type="radio" name="gender">Kadın <br>
+        <input type="radio" name="gender">Belirtmek istemiyorum. <br>
+        Favori Takımınız?: <br>
+        <input type="checkbox" name="parma">Parma <br>
+        <input type="checkbox" name="arsenal">Arsenal <br>
+        <input type="checkbox" name="realMadrid">Real Madrid <br>
+
+        İstanbul'da hangi yakada ikamet ediyorsun? <br>
+        <select name="continental">
+            <option value="avrupa">Avrupa</option>
+            <option value="anadolu">Anadolu</option>
+        </select>
+
+        <input type="submit" value="Üye ol!">
+        <input type="reset" value="Temizle"> <br>
+    </form>
+    <hr>
+    <form action="thankyou.html" method="get">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+        <input type="submit" value="Submit">
+      </form> 
+<hr>
+      <form>
+        <label for="name">Adınız:</label><br>
+        <input type="text" id="name" name="name"><br>
+        
+        <label for="car">Araba Seçin:</label><br>
+        <select id="car" name="car">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select><br>
+        
+        <input type="checkbox" id="agree" name="agree">
+        <label for="agree">Şartları kabul ediyorum.</label><br>
+        
+        <input type="submit" value="Gönder">
+      </form>
+<hr>
+      <form>
+        <label for="name">Adınız:</label><br>
+        <input type="text" id="name" name="name"><br>
+        
+        <p>Cinsiyet:</p>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Erkek</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Kadın</label><br>
+        
+        <input type="submit" value="Gönder">
+      </form>
+
+<hr>
+<form>
+    Ad: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    <input type="submit" value="Gönder">
+  </form>
+
+  <hr>
+  <form>
+    Mesajınız:<br>
+    <textarea name="message" rows="5" cols="30"></textarea><br>
+    <input type="submit" value="Gönder">
+  </form>
+<hr>
+<form>
+    <label for="message">Mesajınız:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50">
+    </textarea><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+
+  <hr>
+  <form>
+    Sevdiğiniz meyve:<br>
+    <select name="fruit">
+      <option value="apple">Elma</option>
+      <option value="banana">Muz</option>
+      <option value="cherry">Kiraz</option>
+    </select><br>
+    <input type="submit" value="Gönder">
+  </form>
+
+  <hr>
+
+  <form>
+    <label for="cars">Araba seçin:</label>
+    <select id="cars" name="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+<hr>
+<form>
+    Ad: <input type="text" name="name"><br>
+    Email: <input type="email" name="email"><br>
+    <button type="submit">Gönder</button>
+  </form>
+  <hr>
+
+  <form>
+    <label for="name">Ad:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <input type="submit" value="Gönder">
+  </form>
+  <hr>
+
+  <form>
+    <label for="fname">Ad:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Soyad:</label><br>
+    <input type="text" id="lname" name="lname"><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+
+  <hr>
+
+  <form>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="pwd">Şifre:</label><br>
+    <input type="password" id="pwd" name="pwd"><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+<hr>
+  <form>
+    <label for="vehicle1"> Arabam var:</label>
+    <input type="checkbox" id="vehicle1" name="vehicle1" value="Car"><br>
+    <label for="vehicle2"> Bisikletim var:</label>
+    <input type="checkbox" id="vehicle2" name="vehicle2" value="Bike"><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+  <hr>
+
+  <form>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Erkek</label><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Kadın</label><br><br>
+    <input type="submit" value="Gönder">
+  </form>
+      <!-- Form Elemanlarının Özellikleri
+HTML'deki form elemanları, kullanıcıdan bilgi almak için kullanılır. Bu form elemanları farklı türde ve özelliklerde olabilir ve farklı amaçlar için kullanılabilir.
+
+1. <input>
+
+<input> etiketi, bir HTML formunun en temel elemanıdır ve birçok farklı türde veriyi kabul edebilir. <input> elemanının type özelliği, form elemanının türünü belirler. Örneğin:
+
+- type="text": Metin girişi için standart form elemanıdır.
+
+- type="password": Girilen metni maskeleyerek kullanıcıdan bir parola girişi alır.
+
+- type="radio": Kullanıcının birden çok seçenek arasından tek bir seçeneği seçmesini sağlar.
+
+- type="checkbox": Kullanıcının birden çok seçenek arasından bir veya daha fazla seçeneği seçmesini sağlar.
+
+- type="submit": Formu sunucuya göndermek için kullanılır.
+
+- type="reset": Formda girilen tüm bilgileri sıfırlar.
+
+2. <textarea>
+
+<textarea> etiketi, kullanıcının çok satırlı metin girişi yapabileceği bir metin alanı oluşturur. Genellikle kullanıcıdan yorumlar veya diğer uzun form girişleri almak için kullanılır. rows ve cols öznitelikleri ile metin alanının boyutu belirlenebilir.
+
+3. <select> ve <option>
+
+<select> etiketi, bir açılır liste oluşturur. <option> etiketi ile birlikte kullanılarak kullanıcının bir veya birden fazla seçenek arasından seçim yapabilmesi sağlanır.
+
+4. <button>
+
+<button> etiketi, tıklanabilir bir düğme oluşturur. Formlarda genellikle bir "Gönder" veya "Sıfırla" düğmesi olarak kullanılır, ancak aynı zamanda JavaScript ile birlikte de kullanılabilir.
+
+5. <label>
+
+<label> etiketi, form elemanları için anlamlı ve erişilebilir bir etiket oluşturur. for özelliği, etiketin hangi form elemanına ait olduğunu belirler.
+
+Her bir form elemanı, name özniteliği ile sunucuya gönderildiğinde tanımlanır. value özniteliği, form elemanının değerini belirler (kullanıcı tarafından girilirse).
+
+Form elemanları genellikle bir <form> etiketi içinde gruplandırılır, bu da genellikle bir action (formun gönderileceği URL) ve method (genellikle "GET" veya "POST") özelliği içerir.
+
+Bu elemanlar ve özellikler, çeşitli form kontrollerini oluşturarak kullanıcılardan giriş almayı mümkün kılar. HTML form elemanlarının doğru kullanımı, kullanıcıların bilgiyi kolayca ve doğru bir şekilde girmesini ve sunucuların bu bilgiyi doğru bir şekilde işlemesini sağlar. -->
+</body>
+</html>
