@@ -1,0 +1,40 @@
+.color-blue.fw-bold{
+    color: blue;
+    font-weight: bold;
+}
+.box {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    margin-top: 10px;
+}
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+.left-bar {
+    width: 200px;
+}
+.content {
+    width: 800;
+}
+.container {
+    width: 1000px;
+    margin: 0 auto 0 auto;
+}
+.card {
+    width: 20%;
+    float: left;
+    padding: 5%;
+    margin-right: 3%;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
