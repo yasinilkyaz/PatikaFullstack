@@ -1,0 +1,21 @@
+/* Açıklama satırı
+en içteki etiketin özelliklerini uygular
+yoksa en üsttekini uygular
+
+*/
+body {
+    background-color: aqua;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+    color: green;
+    font-size: 30px;
+}
+p {
+    color: blue;
+    font-size: 20px;
+}
+h3 {
+    color:red;
+    font-size: 8px;
+}

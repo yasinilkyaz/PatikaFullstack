@@ -1,0 +1,21 @@
+/************* Layout **********/
+/* class -> .text {} */
+/* id -> ^#id-bilgisi {} */
+
+.text-red{
+    color: red;
+}
+
+.fs-14{
+    font-size: 14px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-30{
+    font-size: 30px;
+}
+
+#idli-tanimlama {
+    font-size: 40px;
+}
