@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            justify-content: space-between; /* Yatayda elemanları kenarlara hizalama */
+            align-items: center; /* Dikeyde elemanları merkezi hizalama */
+            height: 300px;
+            background-color: #E3E3E3;
+        }
+
+        .flex-item {
+            width: 100px;
+            height: 100px;
+            background-color: #007BFF;
+            color: #FFFFFF;
+            text-align: center;
+            line-height: 100px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .flex-item:nth-child(2) {
+            order: 1; /* Orta sıraya taşıma */
+        }
+
+        .flex-item:nth-child(3) {
+            order: -1; /* En önceki sıraya taşıma */
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">1</div>
+        <div class="flex-item">2 (Orta)</div>
+        <div class="flex-item">3 (Başlangıç)</div>
+    </div>
+</body>
+</html>

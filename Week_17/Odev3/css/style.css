@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  header {
+    color: gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    padding: 1rem 2%;
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  header *{
+    margin-right: 0.5rem;
+  }
+  header div:nth-child(2) img {
+    width: 16px; 
+    height: 16px;
+  }
+  header div:nth-child(2) a:nth-child(4) {
+    color:white;
+    background-color: blue;
+    padding: 0.5rem 0.5rem;
+    font-weight: bold;
+  }
+main{
+    height: 95vh;
+}
+  logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  logo img{
+    width: 500px;
+    margin-top: 150px;
+  }
+  search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+    
+  }
+  search img{
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+  }
+  search input{
+    width: 480px;
+    margin: 10px;
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    margin: 10px;
+  }
+  search i{
+    margin: 10px;
+    color: grey;
+  }
+
+ 
+
+  search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    
+  }
+  search-btn button {
+    background-color: #f2f2f2;
+    margin: 11px 4px;
+    padding: 0px 16px;
+    font-size: 14px;
+    line-height: 27px;
+    height: 36px;
+    border-radius: 4px;
+  }
+
+  footer{
+    width: 100%;
+    height: 5vh;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+  }
+
+.footer-a{
+    font-size: 14px;
+    color: rgb(103, 102, 102);
+    padding: 0 10px 0 20px;
+}

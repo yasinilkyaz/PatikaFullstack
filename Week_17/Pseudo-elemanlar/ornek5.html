@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        li {
+            position: relative;
+            padding-left: 20px;
+            line-height: 24px;
+        }
+
+        li::before {
+            content: "➤"; /* Ok simgesi (Unicode karakteri) */
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* position
+1-absolute herhangi bir yeri yok.gözükmez ise z-index değeri ver.
+2-relative yerinde duruyor ama farklı yerlere taşına biliyor.
+3-fixed mevcut kunumda kalır. scroll kullansan bile aynı yerde kalır.
+4-sticky bir top ve left belirterek scrollda bir yerden sonra sayfada belirtilen yerde kalır.
+
+*/
+.box {
+    width: 100px;
+    height: 100px;
+}
+.box-red {
+    background-color:red;
+    position: absolute;
+    left: 100px;
+}
+.box-blue {
+    background-color:blue;
+}
+
+.box-green {
+    background-color:green;
+}

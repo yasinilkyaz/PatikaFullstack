@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button::before {
+            content: attr(data-number); /* data-number özelliğini pseudo elemanda kullanma */
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button data-number="1">Düğme 1</button>
+    <button data-number="2">Düğme 2</button>
+    <button data-number="3">Düğme 3</button>
+</body>
+</html>

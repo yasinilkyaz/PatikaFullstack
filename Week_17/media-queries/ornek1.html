@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-size: 16px; /* Varsayılan font boyutu */
+        }
+
+        /* Mobil cihazlar için */
+        @media (max-width: 767px) {
+            body {
+                font-size: 14px; /* Font boyutunu 14 piksel olarak ayarla */
+            }
+
+            .container {
+                width: 90%; /* İçerik alanını mobil cihazlara göre daralt */
+            }
+
+            /* Diğer mobil özel kurallar */
+        }
+
+        /* Tablet ve dizüstü için */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            body {
+                font-size: 16px; /* Font boyutunu 16 piksel olarak ayarla */
+            }
+
+            .container {
+                width: 70%; /* İçerik alanını tablet ve dizüstü cihazlara göre daralt */
+            }
+
+            /* Diğer tablet ve dizüstü özel kurallar */
+        }
+
+        /* Masaüstü ve geniş ekran için */
+        @media (min-width: 1200px) {
+            body {
+                font-size: 18px; /* Font boyutunu 18 piksel olarak ayarla */
+            }
+
+            .container {
+                width: 50%; /* İçerik alanını masaüstü ve geniş ekranlara göre daralt */
+            }
+
+            /* Diğer masaüstü ve geniş ekran özel kurallar */
+        }
+
+        .container {
+            margin: 0 auto; /* İçerik alanını yatayda ortala */
+            padding: 20px;
+            background-color: #E3E3E3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Merhaba, bu bir örnek başlıktır</h1>
+        <p>Ve bu bir örnek paragraftır.</p>
+    </div>
+</body>
+</html>    

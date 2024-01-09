@@ -81,3 +81,8 @@ nav {
   .content a {
     text-decoration: none;
   }
+  .home-img img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
