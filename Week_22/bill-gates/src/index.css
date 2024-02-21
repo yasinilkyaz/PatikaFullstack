@@ -1,0 +1,64 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto", sans-serif;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.total-money{
+  display: flex;
+  background-color: #24C486;
+  font-size: 25px;
+  font-weight: 800;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  width: 100vh;
+  height: 5vh;
+}
+
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+  height: 100%;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: lightgray;
+
+}
+
+.card img{
+  border-radius: 50%;
+}
+
+.input {
+  width: 50px;
+}

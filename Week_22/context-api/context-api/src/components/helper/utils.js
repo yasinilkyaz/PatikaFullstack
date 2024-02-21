@@ -1,16 +1,15 @@
 export function findItemById(items, id) {
-    let foundItem = items.find((item) => item.id === id);
-    
-    if (!foundItem) {
-        for (const item of items) {
-            if (item.subItems && item.subItems.length > 0) {
-                foundItem = findItemById(item.subItems, id);
-                if (foundItem) {
-                    break;
-                }
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (item.id === id) {
+            return item;
+        }
+        if (item.subItems && item.subItems.length > 0) {
+            const foundItem = findItemById(item.subItems, id);
+            if (foundItem) {
+                return foundItem;
             }
         }
     }
-    
-    return foundItem;
+    return undefined;
 }
