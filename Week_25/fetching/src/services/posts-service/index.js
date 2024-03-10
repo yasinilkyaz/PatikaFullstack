@@ -7,7 +7,12 @@ const instance = axios.create({
 
 export const index =  () => instance.get("/posts")
 
-export const create =  (payload) => instance.post("/posts",payload)
+export const create =  (payload) => instance.post("/posts",{payload}).then(function (response) {
+  console.log(response);
+})
+.catch(function (error) {
+  console.log(error);
+});
 
 export const remove =  (id) =>  instance.delete(`/posts/${id}`)
 
