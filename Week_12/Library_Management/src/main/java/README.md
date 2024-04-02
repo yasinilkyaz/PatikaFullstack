@@ -49,4 +49,4 @@ Uygulamayı başlatmak için aşağıdaki adımları izleyin:
 3. Projeyi bir IDE'de açın.
 4. Projeyi çalıştırın.
 
-## [YAML Dosyası](LibraryController_openapi)
+## [YAML Dosyası](LibraryController_openapi.yaml)
